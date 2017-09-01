@@ -516,7 +516,11 @@ class ViewController: UIViewController, ARSCNViewDelegate, UIPopoverPresentation
 			object.viewController = self
 			self.virtualObject = object
 			
-			object.loadModel()
+            if object.isKind(of: Floor.self){
+                object.loadBoxModel()
+            }else {
+                object.loadModel()
+            }
 			
 			DispatchQueue.main.async {
 				// Immediately place the object in 3D space.
@@ -530,10 +534,10 @@ class ViewController: UIViewController, ARSCNViewDelegate, UIPopoverPresentation
 				spinner.removeFromSuperview()
 				
 				// Update the icon of the add object button
-				let buttonImage = UIImage.composeButtonImage(from: object.thumbImage)
-				let pressedButtonImage = UIImage.composeButtonImage(from: object.thumbImage, alpha: 0.3)
-				self.addObjectButton.setImage(buttonImage, for: [])
-				self.addObjectButton.setImage(pressedButtonImage, for: [.highlighted])
+//                let buttonImage = UIImage.composeButtonImage(from: object.thumbImage)
+//                let pressedButtonImage = UIImage.composeButtonImage(from: object.thumbImage, alpha: 0.3)
+//                self.addObjectButton.setImage(buttonImage, for: [])
+//                self.addObjectButton.setImage(pressedButtonImage, for: [.highlighted])
 				self.isLoadingObject = false
 			}
 		}

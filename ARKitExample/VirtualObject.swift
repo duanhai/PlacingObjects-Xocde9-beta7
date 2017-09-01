@@ -53,6 +53,18 @@ class VirtualObject: SCNNode {
 		
 		modelLoaded = true
 	}
+    
+    func loadBoxModel() {
+        let box = SCNBox.init(width: 0.1, height: 0.002, length: 0.1, chamferRadius: 0.0)
+        let node = SCNNode.init(geometry: box)
+        let grassImage = UIImage(named: "dalishi")
+        let grassMaterial = SCNMaterial()
+        grassMaterial.diffuse.contents = grassImage
+        grassMaterial.isDoubleSided = true
+        box.materials = [grassMaterial]
+        self.addChildNode(node)
+    }
+    
 	
 	func unloadModel() {
 		for child in self.childNodes {
@@ -93,7 +105,8 @@ extension VirtualObject {
 		Cup(),
 		Vase(),
 		Lamp(),
-		Chair()
+		Chair(),
+        Floor()
 	]
 }
 
