@@ -70,6 +70,9 @@ class ViewController: UIViewController, ARSCNViewDelegate, UIPopoverPresentation
 		
 		enableEnvironmentMapWithIntensity(25.0)
 		
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
+        sceneView.addGestureRecognizer(tapGesture)
+        
 		DispatchQueue.main.async {
 			self.screenCenter = self.sceneView.bounds.mid
 		}
@@ -82,6 +85,21 @@ class ViewController: UIViewController, ARSCNViewDelegate, UIPopoverPresentation
 		}
     }
 	
+    @objc
+    func handleTap(_ gestureRecognize: UIGestureRecognizer) {
+        let p = gestureRecognize.location(in: sceneView)
+        let hitResults = sceneView.hitTest(p, options: [:])
+        if hitResults.count > 0 {
+            print("you have clicked the obj")
+            
+            
+            
+            UIApplication.shared.open(URL(string: "http://www.baidu.com")!, options: [:], completionHandler: { (status) in
+            })
+        }
+        
+    }
+    
 	func enableEnvironmentMapWithIntensity(_ intensity: CGFloat) {
 		if sceneView.scene.lightingEnvironment.contents == nil {
 			if let environmentMap = UIImage(named: "Models.scnassets/sharedImages/environment_blur.exr") {
