@@ -10,7 +10,7 @@ import Foundation
 class Vase: VirtualObject {
 	
 	override init() {
-		super.init(modelName: "vase", fileExtension: "scn", thumbImageFilename: "vase", title: "Vase")
+		super.init(modelName: "wolf", fileExtension: "scn", thumbImageFilename: "vase", title: "Wolf")
 	}
 	
 	required init?(coder aDecoder: NSCoder) {
