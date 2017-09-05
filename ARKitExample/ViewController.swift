@@ -62,13 +62,13 @@ class ViewController: UIViewController, ARSCNViewDelegate, UIPopoverPresentation
         sceneView.delegate = self
         sceneView.session = session
 		sceneView.antialiasingMode = .multisampling4X
-		sceneView.automaticallyUpdatesLighting = false
-		
+//        sceneView.automaticallyUpdatesLighting = false
+        sceneView.autoenablesDefaultLighting = true;
 		sceneView.preferredFramesPerSecond = 60
 		sceneView.contentScaleFactor = 1.3
 		//sceneView.showsStatistics = true
 		
-		enableEnvironmentMapWithIntensity(25.0)
+//        enableEnvironmentMapWithIntensity(25.0)
 		
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
         sceneView.addGestureRecognizer(tapGesture)

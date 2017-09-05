@@ -105,15 +105,21 @@ extension VirtualObject {
 		return false
 	}
 	
-	static let availableObjects: [VirtualObject] = [
-		Candle(),
-		Cup(),
-		Vase(),
-		Lamp(),
-		Chair(),
-        Floor(),
+//    static let availableObjects: [VirtualObject] = [
+//        Candle(),
+//        Cup(),
+//        Vase(),
+//        Lamp(),
+//        Chair(),
+//        Floor(),
+//        Desk()
+//    ]
+    
+    static let availableObjects: [VirtualObject] = [
+        Chair(),
         Desk()
-	]
+    ]
+    
 }
 
 // MARK: - Protocols for Virtual Objects
