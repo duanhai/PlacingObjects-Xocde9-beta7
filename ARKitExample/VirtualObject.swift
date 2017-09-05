@@ -38,9 +38,14 @@ class VirtualObject: SCNNode {
 	}
 	
 	func loadModel() {
-		guard let virtualObjectScene = SCNScene(named: "\(modelName).\(fileExtension)", inDirectory: "Models.scnassets/\(modelName)") else {
-			return
-		}
+        guard let virtualObjectScene = SCNScene(named: "\(modelName).\(fileExtension)", inDirectory: "Models.scnassets/\(modelName)") else {
+            return
+        }
+        
+        
+//        guard let virtualObj = SCNScene.init(named: "Models.scnassets/desk_B.DAE") else {
+//            return
+//        }
 		
 		let wrapperNode = SCNNode()
 		
