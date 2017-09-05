@@ -55,11 +55,7 @@ class VirtualObject: SCNNode {
 			wrapperNode.addChildNode(child)
 		}
 //        wrapperNode.transform = SCNMatrix4MakeRotation(-Float.pi/2, 1, 0, 0)
-        if self.title == "DESK" {
-            wrapperNode.scale = SCNVector3Make(0.01, 0.01, 0.01)
-        }
 		self.addChildNode(wrapperNode)
-		
 		modelLoaded = true
 	}
     

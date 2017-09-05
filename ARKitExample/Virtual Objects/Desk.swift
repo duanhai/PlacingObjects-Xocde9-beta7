@@ -10,7 +10,7 @@ import UIKit
 
 class Desk: VirtualObject {
     override init() {
-        super.init(modelName: "desk_B", fileExtension: "DAE", thumbImageFilename: "vase", title: "DESK")
+        super.init(modelName: "desk_B", fileExtension: "dae", thumbImageFilename: "vase", title: "DESK")
     }
     
     required init?(coder aDecoder: NSCoder) {
