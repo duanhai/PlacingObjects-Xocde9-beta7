@@ -13,10 +13,60 @@ import Photos
 
 class ViewController: UIViewController, ARSCNViewDelegate, UIPopoverPresentationControllerDelegate, VirtualObjectSelectionViewControllerDelegate {
 	
+    var hasAddedChair: Bool = false
+    
+    @IBOutlet weak var buyButton: UIButton!
+
+
+    func simpleHint() {
+        // 建立一個提示框
+        let alertController = UIAlertController(
+            title: "Buy it",
+            message: "It will open taobao or web",
+            preferredStyle: .actionSheet)
+        
+        // 建立[確認]按鈕
+        let okAction = UIAlertAction(
+            title: "OK",
+            style: .default,
+            handler: {
+                (action: UIAlertAction!) -> Void in
+                let url = URL(string: "taobao://item.taobao.com/item.htm?id=553168963205")
+                let url2 = URL(string: "https://item.taobao.com/item.htm?id=553168963205")
+                
+                if UIApplication.shared.canOpenURL(url!){
+                    UIApplication.shared.open(url!, options: [:], completionHandler: { (status) in
+                        
+                    })
+                }else {
+                    UIApplication.shared.open(url2!, options: [:], completionHandler: { (status) in
+                    })
+                }
+        })
+        
+        alertController.addAction(okAction)
+        
+        let cancelAction = UIAlertAction(
+            title: "CANCEL",
+            style: .cancel,
+            handler: nil)
+        alertController.addAction(cancelAction)
+        
+        // 顯示提示框
+        self.present(alertController, animated: true, completion: nil)
+        
+    }
+    
+    @IBAction func jump2Taobao(_ sender: Any) {
+        
+        UIApplication.shared.open(URL(string: "http://h5.stage.tanqu.com.cn/3Ddemo/#/preview")!, options: [:], completionHandler: { (status) in
+        })
+        
+  
+    }
     // MARK: - Main Setup & View Controller methods
     override func viewDidLoad() {
         super.viewDidLoad()
-
         Setting.registerDefaults()
         setupScene()
         setupDebug()
@@ -92,10 +142,9 @@ class ViewController: UIViewController, ARSCNViewDelegate, UIPopoverPresentation
         if hitResults.count > 0 {
             print("you have clicked the obj")
             
+            simpleHint()
             
-            
-            UIApplication.shared.open(URL(string: "http://www.baidu.com")!, options: [:], completionHandler: { (status) in
-            })
+
         }
         
     }
@@ -411,6 +460,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, UIPopoverPresentation
 		
 		if object.parent == nil {
 			sceneView.scene.rootNode.addChildNode(object)
+            hasAddedChair = true
 		}
     }
 
@@ -584,6 +634,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, UIPopoverPresentation
 	
 	func virtualObjectSelectionViewController(_: VirtualObjectSelectionViewController, didSelectObjectAt index: Int) {
 		loadVirtualObject(at: index)
+        
 	}
 	
 	func virtualObjectSelectionViewControllerDidDeselectObject(_: VirtualObjectSelectionViewController) {
