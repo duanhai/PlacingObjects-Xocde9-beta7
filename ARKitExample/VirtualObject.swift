@@ -116,7 +116,10 @@ extension VirtualObject {
 //    ]
     
     static let availableObjects: [VirtualObject] = [
-        Desk()
+        Desk(),
+        OldChair(),
+        Bench()
+        
     ]
     
 }
