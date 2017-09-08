@@ -21,8 +21,8 @@ class ViewController: UIViewController, ARSCNViewDelegate, UIPopoverPresentation
     func simpleHint() {
         // 建立一個提示框
         let alertController = UIAlertController(
-            title: "Buy it",
-            message: "It will open taobao or web",
+            title: "",
+            message: "Go to taobao.",
             preferredStyle: .actionSheet)
         
         // 建立[確認]按鈕
