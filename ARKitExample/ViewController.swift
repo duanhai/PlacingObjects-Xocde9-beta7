@@ -59,7 +59,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, UIPopoverPresentation
     
     @IBAction func jump2Taobao(_ sender: Any) {
         
-        UIApplication.shared.open(URL(string: "http://h5.stage.tanqu.com.cn/3Ddemo/#/preview")!, options: [:], completionHandler: { (status) in
+        UIApplication.shared.open(URL(string: "http://h5.tanqu.com.cn/3Dcloud/mobile.html")!, options: [:], completionHandler: { (status) in
         })
         
   
