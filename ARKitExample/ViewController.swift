@@ -141,7 +141,11 @@ class ViewController: UIViewController, ARSCNViewDelegate, UIPopoverPresentation
         let hitResults = sceneView.hitTest(p, options: [:])
         if hitResults.count > 0 {
             print("you have clicked the obj")
-            
+//            for hit in hitResults {
+//                print(hit.node.name ?? "")
+//            }
+//            self.virtualObject =  hitResults.first?.node as? VirtualObject
+
             simpleHint()
             
 
